@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Virtual Expo.</title>
+  <meta name="description" content="Now in 3D!">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.6.1/aframe-master.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.6/dist/aframe-extras.min.js"></script>
+  
+
+
+
+</head>
+<body>
+
+  <a-scene fog="type: linear; color: #ffffff; far: 16; near: 7">
+
+    <!-- Splash Screen -->
+    <div class="splash">
+      <div class="splash__card">
+        <h1>Welcome to Sparkle Passion in VR</h1>
+        <p>You can move around with WASD keys (desktop), by tapping the screen (mobile) or with the button on your Google Cardboard.
+         <br> Can you find the secret hidden room? A great reward awaits you if you do!
+        </p>
+        <img class="splash__img" src="img/other/catVR.jpg" alt="whoa" />
+        <button class="splash__button">Enter</button>
+      </div>
+    </div>
+
+    <!-- Load Assets -->
+    <a-assets>
+      <!-- global -->
+      <img id="floor" src="img/other/floor.jpg">
+      <img id="wall" src="img/other/wall-concrete.jpg">
+      <img id="wall-secret" src="img/other/wall-concrete-secret.jpg">
+      <img id="wall-brick" src="img/other/brick.jpg">
+
+
+      <!-- Corridor -->
+      <img id="logo" src="img/other/SP_final_logo_square.png">
+      <img id="jasonGift" src="img/other/jason_gift.jpeg">
+      <img id="hospitalDescription" src="img/other/hospitalDescription.jpg">
+      <img id="gallery" src="img/other/gallery.jpg">
+      <img id="theater" src="img/other/theatre.jpg">
+
+     
+
+      <!--Room 1-->
+      <img id="about" src="img/room1/JasonWise.jpeg">
+      <img id="aboutJason" src="img/room1/aboutJason.jpg">
+      <img id="jason" src="img/room1/jason_wise.jpeg">
+      <img id="aboutSign" src="img/room1/about.png">
+
+      <!-- Room 2-->
+      <img id="carnation" src="img/room2/carnation.jpg">
+      <img id="carnation_sign" src="img/room2/carnation_sign.jpg">
+      <img id="september_rose" src="img/room2/september_rose.jpg">
+      <img id="september_rose_sign" src="img/room2/september_rose_sign.jpg">
+      <img id="october_rose" src="img/room2/october_rose.jpg">
+      <img id="october_rose_sign" src="img/room2/october_rose_sign.jpg">
+      <img id="never_forget" src="img/room2/never_forget.jpg">
+      <img id="never_forget_sign" src="img/room2/never_forget_sign.jpg">
+      <img id="island_rose" src="img/room2/island_rose.jpg">
+      <img id="island_rose_sign" src="img/room2/isalnd_rose_sign.jpg">
+      <img id="pink_lady" src="img/room2/pink_lady.jpg">
+      <img id="pink_lady_sign" src="img/room2/pink_lady_sign.jpg">
+      
+
+      <!-- Room 3 -->
+      <img id="aloha" src="img/room3/aloha.jpg">
+      <img id="aloha_sign" src="img/room3/aloha_sign.jpg">
+      <img id="choles_heart" src="img/room3/choles_heart.jpg">
+      <img id="choles_heart_sign" src="img/room3/choles_heart_sign.jpg">
+      <img id="indian_summer" src="img/room3/indian_summer.jpg">
+      <img id="indian_summer_sign" src="img/room3/indian_summer_sign.jpg">
+
+      <!-- Room 4 -->
+      <img id="gecko" src="img/room4/gecko.jpg">
+      <img id="gecko_sign" src="img/room4/gecko_sign.jpg">
+      <img id="miami" src="img/room4/miami.jpg">
+      <img id="miami_sign" src="img/room4/miami_sign.jpg">
+      <img id="thank_you_note" src="img/room4/thank_you_note.jpg">
+      <img id="home" src="img/room4/icons8-home-384.png">
+     
+    </a-assets>
+      <!-- Theater -->
+      <video id="theaterVideo" autoplay loop="true" webkit-playsinline playsinline src="img/theater/never_forget1.mp4"></video>
+      <img id="theater-curtains"  src="img/theater/curtains.png">
+      <a-asset-item id="couch-obj" src="img/theater/couch/model.obj"></a-asset-item>
+      <a-asset-item id="couch-mtl" src="img/theater/couch/materials.mtl"></a-asset-item>
+
+      <!-- Secret Room -->
+      <img id="new_art" src="img/secret/new_art.jpeg">
+      <img id="secret_note" src="img/secret/secret_note.jpg">
+    </a-assets>
+
+    <!-- User / Camera -->
+    <a-entity
+      id="player"
+      camera="user-height: 2.5"
+      universal-controls
+      kinematic-body
+      listener
+      position: "0 9 0"
+     
+    >
+ 
+  </a-entity>
+
+
+    <!-- Start Room (spawn) -->
+    <a-entity position="-1.5 1.5 19.5" rotation="0 0 0">
+      <!--left wall -->
+      <a-entity rotation= "0 90 0">
+        <a-image position="1 1.5 -4.4" src="#logo" height="5" width="5"></a-image>
+      </a-entity>
+    </a-entity>
+
+    <!-- corridor -->
+    <!-- right wall -->
+    <a-image position="-.1 2.5 3" rotation="0 -90 0" src="#hospitalDescription" height="3" width="3"></a-image>
+    <a-image position="-.1 2.5 12" rotation="0 -90 0" src="#gallery" height="1.5" width="3"></a-image>
+    <a-image position="-.1 2.5 -9" rotation="0 -90 0" src="#theater" height="1.5" width="3"></a-image>
+    <!-- left wall -->
+    <a-image position="-2.9 2.5 12" rotation="0 90 0" src="#gallery" height="1.5" width="3"></a-image>
+    <a-image position="-2.9 2.5 -9" rotation="0 90 0" src="#theater" height="1.5" width="3"></a-image>
+    <a-image position="-2.9 2.5 3" rotation="0 90 0" src="#jasonGift" height="3" width="3"></a-image>
+
+    <!-- Room 1 (Immediate right) -->
+    <a-entity position="10.5 1.5 19.5" rotation="0 -90 0">
+      <!-- Room Sign -->
+      <a-image position="-1.45 1 6.02" rotation="0 90 0" src="#aboutSign" height="1.5" width="3"></a-image>
+      <a-image position="1.45 1 6.02" rotation="0 -90 0" src="#aboutSign" height="1.5" width="3"></a-image>
+      <!-- Back wall -->
+      <a-image position="0 1.5 -4.4" src="#about" height="5" width="5"></a-image>     
+      <!--right wall -->
+      <a-entity rotation= "0 -90 0">
+        <a-image position="0 1.5 -4.4" src="#aboutJason" height="5" width="5"></a-image>        
+      </a-entity>
+      <!--left wall -->
+      <a-entity rotation= "0 90 0">
+        <a-image position="0 1.5 -4.4" src="#jason" height="5" width="5"></a-image>
+      
+      </a-entity>
+    </a-entity>
+
+    <!-- Room 2 (First Left) -->
+    <a-entity position="-10.5 1.5 7.5" rotation="0 90 0">
+      <!-- Room Sign -->
+      <a-image position="-1.45 1 6.02" rotation="0 90 0" src="#gallery" height="1.5" width="3"></a-image>
+      <a-image position="1.45 1 6.02" rotation="0 -90 0" src="#gallery" height="1.5" width="3"></a-image>
+      <!-- Back wall -->
+      <a-image position="0 1.5 -4.4" src="#september_rose" height="5" width="5"></a-image>
+      <a-image position="0 6 -4" rotation="15 0 0" src="#september_rose_sign" height="2.5" width="5"></a-image>
+      
+      <!--left wall -->
+      <a-entity rotation= "0 90 0">
+        <a-image cursor-listener position="-0 1.5 -4.4" src="#carnation" height="5" width="5"></a-image>
+        <a-image position="0 6 -4" rotation="15 0 0" src="#carnation_sign" height="2.5" width="5"></a-image>
+      </a-entity>
+    </a-entity>
+
+    
+     <a-entity position="-10.5 1.5 -4.5" rotation="0 90 0">
+      <!-- Room Sign -->
+      <a-image position="-1.45 1 6.02" rotation="0 90 0" src="#gallery" height="1.5" width="3"></a-image>
+      <a-image position="1.45 1 6.02" rotation="0 -90 0" src="#gallery" height="1.5" width="3"></a-image>
+      <!-- Back wall -->
+      <a-image position="0 1.5 -4.4" src="#october_rose" height="5" width="5"></a-image>
+      <a-image position="0 6 -4" rotation="15 0 0" src="#october_rose_sign" height="2.5" width="5" ></a-image>
+      <a-image position="-6 1.5 4.4" rotation="0 180 0"  src="#island_rose" height="5" width="5"></a-image>
+      
+      <a-image position="-6 1.5 -4.4"  src="#pink_lady" height="5" width="5"></a-image>
+      <a-image position="-6 6 -4" rotation="15 0 0" src="#pink_lady_sign" height="2.5" width="5" ></a-image><a-image position="-6 6 4" rotation="15 180 0" src="#island_rose_sign" height="2.5" width="5" ></a-image>
+      <!--right wall -->
+      <a-entity rotation= "0 -90 0">
+        <a-image position="0 1.5 -4.4" src="#never_forget" height="5" width="5"></a-image>  
+        <a-image position="0 6 -4" rotation="15 0 0" src="#never_forget_sign" height="2.5" width="5"></a-image>
+      </a-entity>
+    </a-entity>
+
+    <!-- Room 3 (First Right) -->
+    <a-entity position="7.5 1.5 7.5" rotation="0 -90 0">
+      <!-- Room Sign -->
+      <a-image position="-1.45 1 6.02" rotation="0 90 0" src="#gallery" height="1.5" width="3"></a-image>
+      <a-image position="1.45 1 6.02" rotation="0 -90 0" src="#gallery" height="1.5" width="3"></a-image>
+      <!-- Back wall -->
+      <a-image position="0 1.3 -4.4" src="#aloha" height="5" width="4"></a-image>
+      <a-image position="0 6 -4" rotation="15 0 0" src="#aloha_sign" height="2.5" width="5"></a-image>
+      <!--right wall -->
+      <a-entity rotation= "0 -90 0">
+        <a-image position="0 1.3 -4.4" src="#indian_summer" height="5" width="4"></a-image>
+        <a-image position="0 6 -4" rotation="15 0 0" src="#indian_summer_sign" height="2.5" width="5"></a-image>
+        
+      </a-entity>
+      <!--left wall -->
+      <a-entity rotation= "0 90 0">
+        <a-image position="0 1.3 -4.4" src="#choles_heart" height="5" width="4"></a-image>
+        <a-image position="0 6 -4" rotation="15 0 0" src="#choles_heart_sign" height="2.5" width="5"></a-image>
+       
+      </a-entity>
+    </a-entity>
+
+   
+
+    <!-- Example Room 4 (Second Right) -->
+    <a-entity position="7.5 1.5 -4.5" rotation="0 -90 0">
+      <!-- Room Sign -->
+      <a-image position="-1.45 1 6.02" rotation="0 90 0" src="#gallery" height="1.5" width="3"></a-image>
+      <a-image position="1.45 1 6.02" rotation="0 -90 0" src="#gallery" height="1.5" width="3"></a-image>
+      <!-- Back wall -->
+      <a-image position="0 1.3 -4.4" src="#miami" height="5" width="5"></a-image>
+      <a-image position="0 6 -4" rotation="15 0 0" src="#miami_sign" height="2.5" width="5"></a-image>
+      <!--right wall -->
+      <a-entity rotation= "0 -90 0">
+      <a-image position="0 1.3 -4.4" src="#thank_you_note" height="5" width="5"></a-image>
+     
+    </a-entity>
+      <!--left wall -->
+      <a-entity rotation= "0 90 0">
+        <a-image position="0 1.3 -4.4" src="#gecko" height="5" width="5"></a-image>
+        <a-image position="0 6 -4" rotation="15 0 0" src="#gecko_sign"  height="2.5" width="5"></a-image>
+      </a-entity>
+    </a-entity>
+
+
+    <!-- theatre -->
+    <a-entity position="-1.5 1.5 -22.5">    
+      <!-- Back wall -->
+      <a-video src="#theaterVideo" width="7" height="4" position="0 1.4 -4.4"></a-video>
+      <a-image position="0 0 -4.4" src="#theater-curtains" height="12" width="9"></a-image>
+      <!-- objects -->
+      <a-entity obj-model="obj: #couch-obj; mtl: #couch-mtl" position ="0 -1 1" rotation="0 0 0" scale="2 2 2"></a-entity>
+      <!-- ceiling -->
+      <a-plane position="0 6 0" rotation="90 0 0" height="9" width="9" color="black"></a-plane>
+    </a-entity>
+
+    <!-- Secret Room (Second Right) -->
+    <a-entity position="-22.5 1.5 19.5" rotation="0 0 0">
+      
+      <a-entity rotation= "0 90 0">
+        <a-image position="0 1.3 -4.4" src="#secret_note" height="5" width="5"></a-image>
+       
+      </a-entity><a-image cursor-listener2 position="0 1.3 -4.4" src="#new_art" height="5" width="3"></a-image>
+    </a-entity>
+
+
+
+    <!-- Ground -->
+    <a-grid id="ground" static-body material="src: #floor; repeat: 15 15" rotation="0 -90 0"></a-grid>
+
+    <!-- Walls (used by map.js -->)
+    <a-entity id="walls"></a-entity>
+
+
+    <!-- Sky -->
+    <a-sky id="sky" color="#0000ff"></a-sky>
+
+  </a-scene>
+
+  <script src="js/map.js"></script>
+  <script src="js/video.js"></script>
+
+</body>
+</html>
